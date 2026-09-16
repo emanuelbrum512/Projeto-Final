@@ -13,15 +13,22 @@ function Home() {
 
   useEffect(() => {
     setCarregando(true);
-    fetch(`https://sua-api.com/dados?page=${pagina}`)
+    fetch("/api.json")
       .then((resposta) => resposta.json())
       .then((dados) => {
-        const produtosTratados = dados.produtos.map(
+        const listaProdutosRaw = Array.isArray(dados)
+          ? dados
+          : dados.produtos || [];
+        const listaCategorias = Array.isArray(dados)
+          ? []
+          : dados.categorias || [];
+
+        const produtosTratados = listaProdutosRaw.map(
           ({ estoque, destaque, ...restoDoProduto }) => restoDoProduto,
         );
 
         setProdutos(produtosTratados);
-        setCategorias(dados.categorias);
+        setCategorias(listaCategorias);
         setCarregando(false);
       })
       .catch((erro) => {
@@ -31,7 +38,9 @@ function Home() {
   }, [pagina]);
 
   const produtosFiltrados = produtos.filter((item) => {
-    const bateNome = item.nome.toLowerCase().includes(busca.toLowerCase());
+    const bateNome = item.nome
+      ? item.nome.toLowerCase().includes(busca.toLowerCase())
+      : true;
     const bateCategoria =
       categoria === "" || item.categoriaId === Number(categoria);
     return bateNome && bateCategoria;
@@ -51,6 +60,7 @@ function Home() {
         setBusca={setBusca}
         categoria={categoria}
         setCategoria={setCategoria}
+        categorias={categorias}
       />
 
       <nav className="paginacao">

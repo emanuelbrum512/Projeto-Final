@@ -7,9 +7,19 @@ function Detalhes() {
   const [produto, setProduto] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/produtos/${id}`)
+    fetch("/api.json")
       .then((resposta) => resposta.json())
-      .then((dados) => setProduto(dados))
+      .then((dados) => {
+        const listaProdutos = Array.isArray(dados)
+          ? dados
+          : dados.produtos || [];
+
+        const produtoEncontrado = listaProdutos.find(
+          (p) => String(p.id) === String(id),
+        );
+
+        setProduto(produtoEncontrado);
+      })
       .catch((erro) => console.error("Erro ao carregar detalhes:", erro));
   }, [id]);
 
@@ -38,7 +48,9 @@ function Detalhes() {
 
           <p>
             <strong>Preço:</strong> R${" "}
-            {produto.preco.toFixed(2).replace(".", ",")}
+            {produto.preco
+              ? produto.preco.toFixed(2).replace(".", ",")
+              : "0,00"}
           </p>
           <p>
             <strong>Avaliação:</strong> {produto.avaliacao} / 5
