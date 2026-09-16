@@ -1,74 +1,26 @@
-import { useState, useEffect } from "react";
-import "./App.css"; // Importando o arquivo de estilo
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import Home from "./pages/Home.jsx";
+import Detalhes from "./pages/Detalhes.jsx";
+import Sobre from "./pages/Sobre.jsx";
+import "./App.css";
+
 export default function App() {
-  const [dados, setDados] = useState({ categorias: [], produtos: [] });
-  const [carregando, setCarregando] = useState(true);
-  const [erro, setErro] = useState(null);
-
-  useEffect(() => {
-    async function carregarDados() {
-      try {
-        const resposta = await fetch("/api.json");
-
-        if (!resposta.ok) {
-          throw new Error(`Erro ao carregar: ${resposta.status}`);
-        }
-
-        const resultado = await resposta.json();
-        setDados(resultado);
-      } catch (err) {
-        setErro(err.message);
-      } finally {
-        setCarregando(false);
-      }
-    }
-
-    carregarDados();
-  }, []);
-
-  if (carregando) return <div className="mensagem">Carregando catálogo...</div>;
-  if (erro) return <div className="mensagem erro">Erro: {erro}</div>;
-
   return (
-    <div className="container">
-      <Header />
-      <Hero />
-      <h1>Catálogo Geek (TCC)</h1>
+    <BrowserRouter>
+      <div className="app-container">
+        <Header />
 
-      {/* Listando as categorias */}
-      <div className="categorias-container">
-        {dados.categorias.map((categoria) => (
-          <button key={categoria.id} className="btn-categoria">
-            {categoria.nome}
-          </button>
-        ))}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/produtos" element={<Home />} />
+          <Route path="/produto/:id" element={<Detalhes />} />
+          <Route path="/sobre" element={<Sobre />} />
+        </Routes>
+
+        <Footer />
       </div>
-
-      {/* Listando os produtos */}
-      <div className="produtos-grid">
-        {dados.produtos.map((produto) => (
-          <div key={produto.id} className="produto-card">
-            <img
-              src={produto.imagem}
-              alt={produto.nome}
-              className="produto-imagem"
-            />
-            <h3 className="produto-nome">{produto.nome}</h3>
-            <p className="produto-descricao">{produto.descricao}</p>
-
-            <div className="produto-footer">
-              <span className="produto-preco">
-                R$ {produto.preco.toFixed(2)}
-              </span>
-              <span className="produto-avaliacao">⭐ {produto.avaliacao}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-      <Footer />
-    </div>
+    </BrowserRouter>
   );
 }

@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import CardItem from "../components/CardItem.jsx";
 import SearchBar from "../components/SearchBar.jsx";
 import Loading from "../components/Loading.jsx";
+import Hero from "../components/Hero.jsx";
 
-function Home() {
+export default function Home() {
   const [produtos, setProdutos] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [busca, setBusca] = useState("");
@@ -53,6 +54,8 @@ function Home() {
 
   return (
     <div className="pagina-home">
+      <Hero />
+
       <h1 className="titulo-pagina">Catálogo de Produtos</h1>
 
       <SearchBar
@@ -63,22 +66,10 @@ function Home() {
         categorias={categorias}
       />
 
-      <nav className="paginacao">
-        {[1, 2, 3].map((num) => (
-          <button
-            key={num}
-            className={`botao-pagina ${pagina === num ? "ativo" : ""}`}
-            onClick={() => mudarPagina(num)}
-          >
-            Página {num}
-          </button>
-        ))}
-      </nav>
-
       {carregando ? (
         <Loading mensagem="Buscando os melhores produtos..." />
       ) : (
-        <section className="grid-filmes">
+        <section className="produtos-grid">
           {produtosFiltrados.map((item) => (
             <CardItem key={item.id} item={item} />
           ))}
@@ -88,5 +79,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

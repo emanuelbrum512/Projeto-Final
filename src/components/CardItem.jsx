@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 
 function CardItem({ item }) {
   return (
-    <Link to={`/produto/${item.id}`} className="cartao link-cartao">
+    <Link to={`/produto/${item.id}`} className="produto-card link-card">
       <img
+        className="produto-imagem"
         src={item.imagem ? item.imagem : "https://via.placeholder.com/210x295"}
         alt={item.nome}
       />
-      <h2>{item.nome}</h2>
-      <span className="preco">
+      <h3 className="produto-nome">{item.nome}</h3>
+      <span className="produto-preco">
         {new Intl.NumberFormat("pt-BR", {
           style: "currency",
           currency: "BRL",
