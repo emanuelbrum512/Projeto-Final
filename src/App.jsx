@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import React, { useState, useEffect } from "react";
+import "./App.css"; // Importando o arquivo de estilo
+
 export default function App() {
   const [dados, setDados] = useState({ categorias: [], produtos: [] });
   const [carregando, setCarregando] = useState(true);
@@ -33,10 +32,9 @@ export default function App() {
 
   return (
     <div className="container">
-      <Header />
       <h1>Catálogo Geek (TCC)</h1>
 
-      {}
+      {/* Listando as categorias */}
       <div className="categorias-container">
         {dados.categorias.map((categoria) => (
           <button key={categoria.id} className="btn-categoria">
@@ -45,7 +43,7 @@ export default function App() {
         ))}
       </div>
 
-      {}
+      {/* Listando os produtos */}
       <div className="produtos-grid">
         {dados.produtos.map((produto) => (
           <div key={produto.id} className="produto-card">
@@ -66,7 +64,6 @@ export default function App() {
           </div>
         ))}
       </div>
-      <Footer />
     </div>
   );
 }
