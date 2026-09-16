@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css"; // Importando o arquivo de estilo
-
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
 export default function App() {
   const [dados, setDados] = useState({ categorias: [], produtos: [] });
   const [carregando, setCarregando] = useState(true);
@@ -32,6 +34,8 @@ export default function App() {
 
   return (
     <div className="container">
+      <Header />
+      <Hero />
       <h1>Catálogo Geek (TCC)</h1>
 
       {/* Listando as categorias */}
@@ -64,6 +68,7 @@ export default function App() {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

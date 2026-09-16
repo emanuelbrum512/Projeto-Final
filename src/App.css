@@ -95,6 +95,56 @@ body {
     gap: 15px;
   }
 }
+.hero-section {
+  background: url("https://i.pinimg.com/1200x/a7/3d/e3/a73de3414ea8b2c43b39ebeeecd385c2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 600px; /* Um pouco mais de altura para dar espaço ao absolute */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  border-bottom: 3px solid #ff4757;
+  position: relative; /* <-- Essencial para o absolute do conteúdo funcionar aqui dentro! */
+}
+
+.hero-content {
+  max-width: 700px;
+  position: absolute;
+  bottom: 40px; /* Mantém o texto baixo */
+  width: 100%;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para melhorar a leitura */
+}
+
+.hero-content p {
+  color: #ddd;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-btn {
+  display: inline-block;
+  background-color: #ff4757;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
 .container {
   padding: 20px;
   max-width: 1200px;
