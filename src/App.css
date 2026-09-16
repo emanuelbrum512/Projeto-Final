@@ -100,7 +100,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 600px; /* Um pouco mais de altura para dar espaço ao absolute */
+  min-height: 660px; /* Um pouco mais de altura para dar espaço ao absolute */
   display: flex;
   align-items: center;
   justify-content: center;
