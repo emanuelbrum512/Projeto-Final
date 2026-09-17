@@ -11,14 +11,14 @@ export default function App() {
     <BrowserRouter>
       <div className="app-container">
         <Header />
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/produto/:id" element={<Detalhes />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/produto/:id" element={<Detalhes />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </BrowserRouter>

@@ -12,6 +12,7 @@ function SearchBar({ busca, setBusca, categoria, setCategoria }) {
         className="campo-busca"
         value={categoria}
         onChange={(e) => setCategoria(e.target.value)}
+        aria-label="Filtrar por categoria"
       >
         <option value="">Todas as Categorias</option>
         <option value="1">Anime</option>
@@ -28,4 +29,5 @@ function SearchBar({ busca, setBusca, categoria, setCategoria }) {
     </div>
   );
 }
+
 export default SearchBar;
