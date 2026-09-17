@@ -7,9 +7,6 @@ function Hero() {
           Encontre os melhores colecionáveis, action figures e games para
           turbinar sua coleção.
         </p>
-        <a href="/produtos" className="hero-btn">
-          Explorar Produtos
-        </a>
       </div>
     </section>
   );
