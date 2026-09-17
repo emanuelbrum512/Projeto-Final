@@ -250,6 +250,18 @@ select.campo-busca option {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-decoration: none; /* Remove sublinhado caso seja um Link do React Router */
+  color: inherit; /* Mantém a cor original do texto */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /* Transição suave para o hover */
+}
+
+/* Efeito Hover: O card sobe e ganha uma sombra mais marcante */
+.produto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: #ff4757; /* Opcional: dá uma leve destacada na borda com a cor principal do site */
 }
 
 .produto-imagem {
@@ -262,6 +274,7 @@ select.campo-busca option {
 .produto-nome {
   font-size: 16px;
   margin: 10px 0 5px 0;
+  color: #1a1a1a;
 }
 
 .produto-descricao {
@@ -273,25 +286,28 @@ select.campo-busca option {
 }
 
 /* Rodapé do Card (Preço e Avaliação) */
+/* Rodapé do Card (Preço e Avaliação lado a lado) */
 .produto-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: auto; /* Joga o rodapé sempre para a parte inferior do card */
+  padding-top: 10px;
 }
 
 .produto-preco {
   font-weight: bold;
   color: #27ae60;
+  font-size: 1.1rem;
 }
 
 .produto-avaliacao {
   font-size: 12px;
   background: #f1f2f6;
   padding: 4px 8px;
-  borderradius: 4px;
+  border-radius: 4px;
+  color: #333;
 }
-
 .site-footer {
   background-color: #1a1a1a;
   color: #f1f1f1;

@@ -9,12 +9,18 @@ function CardItem({ item }) {
         alt={item.nome}
       />
       <h3 className="produto-nome">{item.nome}</h3>
-      <span className="produto-preco">
-        {new Intl.NumberFormat("pt-BR", {
-          style: "currency",
-          currency: "BRL",
-        }).format(item.preco)}
-      </span>
+      <div className="produto-footer">
+        <span className="produto-preco">
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(item.preco)}
+        </span>
+
+        <div className="produto-avaliacao">
+          ⭐ {item.avaliacao ? item.avaliacao : "4.8"}
+        </div>
+      </div>
     </Link>
   );
 }
