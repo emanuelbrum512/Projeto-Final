@@ -17,12 +17,6 @@ function Header() {
             </li>
           </ul>
         </nav>
-
-        <div className="header-actions">
-          <button className="cart-btn" aria-label="Carrinho de Compras">
-            🛒 <span className="cart-badge">0</span>
-          </button>
-        </div>
       </div>
     </header>
   );
