@@ -56,8 +56,6 @@ export default function Home() {
     <div className="pagina-home">
       <Hero />
 
-      <h1 className="titulo-pagina">Catálogo de Produtos</h1>
-
       <SearchBar
         busca={busca}
         setBusca={setBusca}
