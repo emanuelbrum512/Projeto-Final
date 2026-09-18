@@ -9,7 +9,7 @@ export default function Home() {
   const [categorias, setCategorias] = useState([]);
   const [busca, setBusca] = useState("");
   const [categoria, setCategoria] = useState("");
-  const [pagina, setPagina] = useState(1);
+  const [pagina] = useState(1);
   const [carregando, setCarregando] = useState(false);
 
   useEffect(() => {
@@ -29,9 +29,10 @@ export default function Home() {
           ? []
           : dados.categorias || [];
 
-        const produtosTratados = listaProdutosRaw.map(
-          ({ estoque, destaque, ...restoDoProduto }) => restoDoProduto,
-        );
+        const produtosTratados = listaProdutosRaw.map((item) => ({
+          ...item,
+          categoriaId: Number(item.categoriaId),
+        }));
 
         setProdutos(produtosTratados);
         setCategorias(listaCategorias);
@@ -53,11 +54,6 @@ export default function Home() {
       categoria === "" || item.categoriaId === Number(categoria);
     return bateNome && bateCategoria;
   });
-
-  const mudarPagina = (numero) => {
-    setPagina(numero);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <div className="pagina-home">
