@@ -13,10 +13,15 @@ export default function Home() {
   const [carregando, setCarregando] = useState(false);
 
   useEffect(() => {
-    setCarregando(true);
-    fetch("/api.json")
-      .then((resposta) => resposta.json())
-      .then((dados) => {
+    async function carregarDadosDaApi() {
+      setCarregando(true);
+      try {
+        const resposta = await fetch("/api.json");
+        if (!resposta.ok) {
+          throw new Error("Falha ao carregar os dados da API local.");
+        }
+        const dados = await resposta.json();
+
         const listaProdutosRaw = Array.isArray(dados)
           ? dados
           : dados.produtos || [];
@@ -30,12 +35,14 @@ export default function Home() {
 
         setProdutos(produtosTratados);
         setCategorias(listaCategorias);
+      } catch (erro) {
+        console.error("Erro capturado no try/catch:", erro);
+      } finally {
         setCarregando(false);
-      })
-      .catch((erro) => {
-        console.error("Erro ao carregar dados:", erro);
-        setCarregando(false);
-      });
+      }
+    }
+
+    carregarDadosDaApi();
   }, [pagina]);
 
   const produtosFiltrados = produtos.filter((item) => {

@@ -7,9 +7,15 @@ function Detalhes() {
   const [produto, setProduto] = useState(null);
 
   useEffect(() => {
-    fetch("/api.json")
-      .then((resposta) => resposta.json())
-      .then((dados) => {
+    async function carregarDetalhes() {
+      try {
+        const resposta = await fetch("/api.json");
+
+        if (!resposta.ok) {
+          throw new Error("Erro ao carregar o arquivo de dados");
+        }
+
+        const dados = await resposta.json();
         const listaProdutos = Array.isArray(dados)
           ? dados
           : dados.produtos || [];
@@ -19,8 +25,12 @@ function Detalhes() {
         );
 
         setProduto(produtoEncontrado);
-      })
-      .catch((erro) => console.error("Erro ao carregar detalhes:", erro));
+      } catch (erro) {
+        console.error("Erro ao carregar detalhes:", erro);
+      }
+    }
+
+    carregarDetalhes();
   }, [id]);
 
   if (!produto) {
