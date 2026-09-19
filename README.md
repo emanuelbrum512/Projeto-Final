@@ -15,5 +15,12 @@ A proposta do projeto é ser um catálogo de produtos, tendo como público-alvo 
 
 ## Prints do projeto
 
-<img src="(https://github.com/emanuelbrum512/Projeto-Final/blob/main/src/assets/01.PNG?raw=true)" alt="Tela inicial" width="500">
+![alt text](https://github.com/emanuelbrum512/Projeto-Final/blob/main/src/assets/01.PNG?raw=true "Tela inicial")
 
+![alt text](https://github.com/emanuelbrum512/Projeto-Final/blob/main/src/assets/02.PNG?raw=true "Tela inicial")
+
+![alt text](https://github.com/emanuelbrum512/Projeto-Final/blob/main/src/assets/03.PNG?raw=true "Categorias")
+
+![alt text](https://github.com/emanuelbrum512/Projeto-Final/blob/main/src/assets/04.PNG?raw=true "Tela inicial")
+
+![alt text](https://github.com/emanuelbrum512/Projeto-Final/blob/main/src/assets/05.PNG?raw=true "Tela inicial")
