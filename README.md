@@ -1,16 +1,17 @@
-# React + Vite
+# Empório Geek
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Integrantes:** Emanuel Henrique de Almeida Brum e Fernando Foeppel Torres Spinelli Pardal.
 
-Currently, two official plugins are available:
+## Proposta
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A proposta do projeto é ser um catálogo de produtos, tendo como público-alvo nerds e geeks. O catálogo contém informações como nome, imagem, preço, avaliações e uma breve descrição do produto, também contém uma página sobre o projeto e seus desenvolvedores. O site funciona de forma interativa a cada ação do usuário, contendo mecanismos de pesquisa e reações.
 
-## React Compiler
+## Instruções de instalação e execução local
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Para execução local, é necessário ter o Node instalado no pc.
+* O usuário deve abrir o CMD e direcionar à página em que o projeto está salvo.
+* Ele deverá digitar o comando `npm install` e, em seguida, o comando `npm run dev`.
+* Um link será gerado e ele deve ser utilizado para acessar o site.
 
-## Expanding the ESLint configuration
+## Prints do projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
