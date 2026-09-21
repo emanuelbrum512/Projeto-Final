@@ -2,7 +2,6 @@ function Header() {
   return (
     <header className="site-header">
       <div className="header-container">
-        {/* Logotipo ou Nome da Marca */}
         <div className="header-logo">
           <a href="/">Empório Geek</a>
         </div>
