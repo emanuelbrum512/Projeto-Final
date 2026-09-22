@@ -521,3 +521,19 @@ select.campo-busca option {
     font-size: 1.6rem;
   }
 }
+
+.botao-favorito {
+  padding: 10px 20px;
+  background-color: #2f3640;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.botao-favorito.favorito {
+  background-color: #ff4757;
+}
